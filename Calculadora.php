@@ -2,42 +2,58 @@
 
 class Calculadora{
 
-private $a;
-private $b;
+private $n1;
+private $n2;
 
-function __construct($a, $b){
-    $this->a=$a;
-    $this->b=$b;
+    function __construct($n1, $n2){
+        $this->n1 = $n1;
+        $this->n2 = $n2;
+    }
+
+public function setNumero1($n1){
+    $this->n1 = $n1;
+    return $this;
 }
 
-function getA($a){
-    return $this->a;
+public function getNumero1(){
+    return $this->n1;
 }
 
-function getB($b){
-    return $this->b;
+public function setNumero2($n2){
+    $this->n2 = $n2;
+    return $this;
 }
 
-function sumar(){
-    return $this->a+$this->b;
+public function getNumero2(){
+    return $this->n2;
 }
 
-function restar(){
-    return $this->a-$this->b;
+public function sumar($n1, $n2){
+    $resultado = $n1 + $n2;
+    return $resultado;
 }
 
-function multiplicar(){
-    return $this->a*$this->b;
+public function restar($n1, $n2){
+    $resultado = $n1 - $n2;
+    return $resultado;
 }
 
-function dividir(){
-    return $this->a/$this->b;
+public function multiplicar($n1, $n2){
+    $resultado = $n1 * $n2;
+    return $resultado;
+}
+
+public function dividir($n1, $n2){
+    $resultado = $n1 / $n2;
+    return $resultado;
 }
 
 }
 
-$objCalculadora=new Calculadora(37,10);
-echo $objCalculadora->sumar() . PHP_EOL;
-echo $objCalculadora->restar() . PHP_EOL;
-echo $objCalcualdora->multiplicar() . PHP_EOL;
-echo $objCalculadora->dividir() . PHP_EOL; 
+$objCalculadora=new Calculadora(5,2);
+$p = $objCalculadora->getNumero1();
+$s = $objCalculadora->getNumero2();
+echo "el resulatdo de la suma es: " . $objCalculadora->sumar($p, $s) . PHP_EOL;
+echo "el resultado de la resta es: " . $objCalculadora->restar($p, $s) . PHP_EOL;
+echo "el resultado de la multiplicación es: ". $objCalculadora->multiplicar($p, $s) . PHP_EOL;
+echo "El resultado de la división es: " . $objCalculadora->dividir($p, $s) . PHP_EOL; 

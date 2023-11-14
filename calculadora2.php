@@ -3,39 +3,61 @@
 class Calculadora
 {
 
-    private $a;
+    public $n;
 
-    function __construct(...$a)
-    {
-        $this->a = $a;
-
+    public function __construct(...$n){
+        $this->n = $n;
     }
 
-    function setA($a)
-    {
-        $array[]=$this->a;
-        return $array;
+    public function getN(){
+        return $this->n;
     }
 
-
-    function sumar()
-    {
-
+    public function setN($n){
+        $this->n = $n;
+        return $this;
     }
 
-    function restar()
-    {
-       
+    public function sumar(...$n){
+
+        $resultado = 0;
+        foreach($n as $num){
+            $resultado += $num;
+        }
+        return "El resultado de la suma es: " . $resultado;
     }
 
-    function multiplicar()
-    {
-        
+    public function restar(...$n){
+
+        $resultado = array_shift($n);
+        foreach($n as $num){
+            $resultado -= $num;
+       }
     }
 
-    function dividir()
-    {
-        
+    public function multiplicar(...$n){
+        $resultado = 1;
+        foreach ($n as $num) {
+            $resultado *= $num;
+        }
+        if ($resultado == 0) {
+            return "El resultado de la multiplicación es: " . $resultado . " ya que hay un vlaor 0 en el array";
+        } elseif ($resultado != 0) {
+            return "El resultado de la multiplicación es: " . $resultado;
+        }
+    }
+
+    public function dividir(...$n){
+        $resultado = array_shift($n);
+        foreach ($n as $num) {
+            if ($num == 0) {
+                $resultado = 0;
+                return ("Hay un 0 en el array, verificar y eleminarlo.");
+            } else {
+                $resultado /= $num;
+            }
+        }
+        return "El resultado de la división es: " . $resultado; 
     }
 }
 
