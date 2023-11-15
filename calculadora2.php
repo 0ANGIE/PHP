@@ -12,7 +12,7 @@ class Calculadora
     public function getN(){
         return $this->n;
     }
-
+    
     public function setN($n){
         $this->n = $n;
         return $this;
@@ -33,6 +33,7 @@ class Calculadora
         foreach($n as $num){
             $resultado -= $num;
        }
+        return "El resultado de la resta es: " . $resultado;
     }
 
     public function multiplicar(...$n){
@@ -63,7 +64,10 @@ class Calculadora
 
 
 $objCalculadora = new Calculadora(37, 10);
-echo $objCalculadora->sumar();
-// echo $objCalculadora->restar();
-// echo $objCalcualdora->multiplicar();
-// echo $objCalculadora->dividir();
+$numeros = $objCalculadora->getN();
+$r = $objCalculadora->multiplicar(...$objCalculadora->n);
+echo $objCalculadora->sumar(...$numeros) . PHP_EOL;
+echo $objCalculadora->restar(...$numeros) . PHP_EOL;
+echo $objCalculadora->multiplicar(...$numeros) . PHP_EOL;
+echo $objCalculadora->dividir(...$numeros);
+
